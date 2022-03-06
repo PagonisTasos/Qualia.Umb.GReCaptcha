@@ -1,0 +1,32 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <QualiaUmbGReCaptchaContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Qualia.Umb.GReCaptcha\**\*.*</QualiaUmbGReCaptchaContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyQualiaUmbGReCaptchaAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <QualiaUmbGReCaptchaContentFiles Include="$(QualiaUmbGReCaptchaContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying Qualia.Umb.GReCaptcha files: $(QualiaUmbGReCaptchaContentFilesPath) - #@(QualiaUmbGReCaptchaContentFiles->Count()) files"  Importance="high" />
+        <Copy
+            SourceFiles="@(QualiaUmbGReCaptchaContentFiles)"
+            DestinationFiles="@(QualiaUmbGReCaptchaContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Qualia.Umb.GReCaptcha\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" 
+            Condition="!Exists('$(MSBuildProjectDirectory)\App_Plugins\Qualia.Umb.GReCaptcha\%(RecursiveDir)%(Filename)%(Extension)')"
+			/>
+
+    </Target>
+
+    <Target Name="ClearQualiaUmbGReCaptchaAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <QualiaUmbGReCaptchaDir 
+				Include="$(MSBuildProjectDirectory)\App_Plugins\Qualia.Umb.GReCaptcha\**\*.*" 
+				Exclude="$(MSBuildProjectDirectory)\App_Plugins\Qualia.Umb.GReCaptcha\**\*.json"
+				/>
+        </ItemGroup>
+        <Message Text="Clear old Qualia.Umb.GReCaptcha data"  Importance="high" />
+        <RemoveDir Directories="@(QualiaUmbGReCaptchaDir)" />
+    </Target>
+
+</Project>

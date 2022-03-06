@@ -1,0 +1,6 @@
+﻿{
+  "javascript": [
+    "~/App_Plugins/Qualia.Umb.GReCaptcha/js/GReCaptcha.resource.js",
+    "~/App_Plugins/Qualia.Umb.GReCaptcha/js/GReCaptcha.controller.js"
+  ]
+}

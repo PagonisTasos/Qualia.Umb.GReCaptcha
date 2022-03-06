@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ContentTargetFolders>.</ContentTargetFolders>
+        <Product>Qualia.Umb.GReCaptcha</Product>
+        <PackageId>Qualia.Umb.GReCaptcha</PackageId>
+        <Title>Qualia.Umb.GReCaptcha</Title>
+		<Description>
+			An Umbraco Cms plugin package for using google recaptcha v3. Enter the keys in settings, decorate your action with a filter, render the script front-end, and you are ready!
+		</Description>
+		<PackageProjectUrl>https://github.com/PagonisTasos/Qualia.Umb.GReCaptcha</PackageProjectUrl>
+        <PackageTags>umbraco cms plugin package;google recaptcha</PackageTags>
+        <RootNamespace>Qualia.Umb.GReCaptcha</RootNamespace>
+		<Version>1.0.1</Version>
+		<Authors>Pagonis Tasos</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Umbraco.Cms.Web.Website" Version="9.1.2" />
+        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.1.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="App_Plugins\Qualia.Umb.GReCaptcha\**\*.*">
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </Content>
+        <None Include="build\**\*.*">
+            <Pack>True</Pack>
+            <PackagePath>buildTransitive</PackagePath>
+        </None>
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,33 @@
+﻿﻿<div id="GReCaptcha" ng-controller="GReCaptchaController as vm">
+
+    <umb-box>
+        <umb-box-content>
+            <h3 class="bold" style="margin-bottom: -.25em;">gReCaptcha</h3>
+
+            <div>
+                <div>
+                    <p></p>
+                    <p>
+                        Enter your keys below and use GReCaptchaService in views to load the api script. You can then get the recaptcha response token via calling 'getReCaptchaToken()'.
+                        Add the response to your request as a '_recaptcha' header or url param.
+                    </p>
+                    <p>Decorate your controller actions with [TypeFilter(typeof(GReCaptchaFilter))] to validate.</p>
+                </div>
+            </div>
+            <div>
+                <label>site key:</label>
+                <br />
+                <input type="text" ng-model="vm.sitekey" no-dirty-check/>
+                <br />
+                <label>secret key:</label>
+                <br />
+                <input type="text" ng-model="vm.secretkey" no-dirty-check/>
+                <br />
+                <button type="button" ng-click="vm.savekeys()" class="btn btn-success">
+                    <span>Save</span>
+                </button>
+            </div>
+        </umb-box-content>
+    </umb-box>
+
+</div>
